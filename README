@@ -1,53 +1,85 @@
-Singularity Control Center  
-====================
+Singularity Control Center
+==========================
 
-About -
+About
+-----
 
-The control center is Singularity's main interface for configuration of various
-aspects of your desktop.
+Singularity Control Center is the primary interface for configuring various
+aspects of the Singularity Desktop Environment.
 
-Installation -
+It is conceptually derived from the GNOME 2.32 Control Center, preserving the
+modular, capplet-based configuration model, while being adapted for a modern,
+composited desktop environment.
 
-See the file 'INSTALL'
-
-How to report bugs -
-
-Bugs should be reported to the Singularity bug tracking system under the product
-control-center. It is available at http://bugzilla.Singularity.org. 
-
-In the report please include the following information -
-
-	Operating system and version
-	For Linux, version of the C library
-	How to reproduce the bug if possible
-	If the bug was a crash, include the exact text that was printed out
-	A stacktrace where possible [see below]
-
-How to get a stack trace -
-
-If the crash is reproducible, it is possible to get a stack trace and 
-attach it to the bug report. The following steps are used to obtain a 
-stack trace -
-	
-	Run the program in gdb [the GNU debugger] or any other debugger
-		ie. gdb Singularity-keyboard-properties
-	Start the program
-		ie. (gdb) run
-	Reproduce the crash and the program will exit to the gdb prompt
-	Get the back trace
-		ie. (gdb) bt full
-
-Once you have the backtrace, copy and paste this either into the 
-'Comments' field or attach a file with it included.
+Singularity Control Center is NOT a continuation of GNOME 2, but a re-
+implementation of its architectural ideas on a GTK3+ stack with client-side
+decoration support.
 
 
-Patches -
+Architecture
+------------
 
-Patches should be submitted to bugzilla.Singularity.org or emailed to the 
-Singularitycc-list@Singularity.org list. If using bugzilla, attach
-the patch to a new bug report [or preferably, check to see if there is
-already a bug report that corresponds to your patch]. Bug reports 
-containing patches should include the 'PATCH' keyword.
+- UI model inspired by GNOME 2.32
+- Modular configuration capplets
+- No shell-specific coupling
+- Designed to work in a mutter-compatible, composited environment
+- Client-side window decorations (CSD) supported where applicable
 
-Patches should be created using the unified diff form.
-	ie. svn diff file-to-be-patched.c > patch.diff
+This project does not attempt to retrofit mutter or CSD into GNOME 2.
+Instead, it reimplements the control-center layer on a modern stack.
+
+
+Installation
+------------
+
+See the file `INSTALL` for build and installation instructions.
+
+
+Bug Reporting
+-------------
+
+Please report bugs using GitHub Issues:
+
+  https://github.com/winhuirass-hue/singularity-control-center/issues
+
+When reporting bugs, include:
+
+- Operating system and version
+- Desktop environment and compositor
+- Steps to reproduce the issue
+- Crash messages or logs, if any
+- A stack trace if the issue involves a crash
+
+
+Getting a Stack Trace
+---------------------
+
+If the crash is reproducible, a stack trace is extremely helpful.
+
+Example using gdb:
+
+  gdb singularity-control-center
+  (gdb) run
+  ... reproduce the crash ...
+  (gdb) bt full
+
+Paste the stack trace into the issue or attach it as a file.
+
+
+Contributing
+------------
+
+Patches should be submitted via GitHub Pull Requests.
+
+- Base your work on the `main` branch
+- Keep commits focused and atomic
+- Follow existing code style
+- Avoid introducing shell-specific assumptions
+
+For larger changes, please open an issue first to discuss design and scope.
+
+
+License
+-------
+
+See the `COPYING` file for license details.

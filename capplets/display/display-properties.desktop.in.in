@@ -1,0 +1,14 @@
+[Desktop Entry]
+_Name=Monitors
+_Comment=Change resolution and position of monitors
+Exec=gnome-display-properties
+Icon=preferences-desktop-display
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Settings;HardwareSettings;
+OnlyShowIn=GNOME;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-control-center
+X-GNOME-Bugzilla-Component=Screen resolution
+X-GNOME-Bugzilla-Version=@VERSION@
